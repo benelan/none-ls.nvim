@@ -14,6 +14,23 @@ See [BUILTIN_CONFIG](BUILTIN_CONFIG.md) to learn how to set up and configure the
 
 ## Code Actions
 
+### [eslint](https://github.com/eslint/eslint)
+
+Injects actions to fix ESLint issues or ignore broken rules.
+
+#### Usage
+
+```lua
+local sources = { null_ls.builtins.code_actions.eslint }
+```
+
+#### Defaults
+
+- Filetypes: `{ "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }`
+- Method: `code_action`
+- Command: `eslint`
+- Args: `{ "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" }`
+
 ### gitrebase
 
 Injects actions to change `gitrebase` command (e.g. using `squash` instead of `pick`).
@@ -148,6 +165,29 @@ local sources = { null_ls.builtins.code_actions.regal }
 
 - Filetypes: `{ "rego" }`
 - Method: `code_action`
+
+### [shellcheck](https://www.shellcheck.net/)
+
+Provides actions to disable ShellCheck errors/warnings, either for the current line or for the entire file.
+
+#### Usage
+
+```lua
+local sources = { null_ls.builtins.code_actions.shellcheck }
+```
+
+#### Defaults
+
+- Filetypes: `{ "sh", "bash" }`
+- Method: `code_action`
+- Command: `shellcheck`
+- Args: `{ "--format", "json1", "--source-path=$DIRNAME", "--external-sources", "-" }`
+
+#### Notes
+
+- Running the action to disable a rule for the current line adds a disable directive above the line or appends the rule to an existing disable directive for that line.
+- Running the action to disable a rule for the current file adds a disable directive at the top of the file or appends the rule to an existing file disable directive.
+- The first non-comment line in a script is not eligible for a line-level disable directive. See [shellcheck#1877](https://github.com/koalaman/shellcheck/issues/1877).
 
 ### [statix](https://github.com/nerdypepper/statix)
 
@@ -2652,6 +2692,22 @@ local sources = { null_ls.builtins.formatting.fish_indent }
 - Method: `formatting`
 - Command: `fish_indent`
 
+### [fixjson](https://github.com/rhysd/fixjson)
+
+A JSON file fixer/formatter for humans using (relaxed) JSON5.
+
+#### Usage
+
+```lua
+local sources = { null_ls.builtins.formatting.fixjson }
+```
+
+#### Defaults
+
+- Filetypes: `{ "json", "jsonc", "json5" }`
+- Method: `formatting`
+- Command: `fixjson`
+
 ### [fnlfmt](https://git.sr.ht/~technomancy/fnlfmt)
 
 fnlfmt is a Fennel code formatter which follows established Lisp conventions when determining how to format a given piece of code.
@@ -3761,7 +3817,7 @@ local sources = { null_ls.builtins.formatting.shfmt }
 
 #### Defaults
 
-- Filetypes: `{ "sh" }`
+- Filetypes: `{ "sh", "bash" }`
 - Method: `formatting`
 - Command: `shfmt`
 - Args: `{ "-filename", "$FILENAME" }`

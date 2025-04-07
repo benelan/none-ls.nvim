@@ -118,6 +118,9 @@ return {
   fish_indent = {
     filetypes = { "fish" }
   },
+  fixjson = {
+    filetypes = { "json", "jsonc", "json5" }
+  },
   fnlfmt = {
     filetypes = { "fennel", "fnl" }
   },
@@ -305,7 +308,7 @@ return {
     filetypes = { "sh" }
   },
   shfmt = {
-    filetypes = { "sh" }
+    filetypes = { "sh", "bash" }
   },
   smlfmt = {
     filetypes = { "sml" }
