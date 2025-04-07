@@ -1,5 +1,16 @@
 {
   "code_actions": {
+    "eslint": {
+      "filetypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+        "astro"
+      ]
+    },
     "gitrebase": {
       "filetypes": [
         "gitrebase"
@@ -36,6 +47,12 @@
     "regal": {
       "filetypes": [
         "rego"
+      ]
+    },
+    "shellcheck": {
+      "filetypes": [
+        "sh",
+        "bash"
       ]
     },
     "statix": {
@@ -773,6 +790,13 @@
         "fish"
       ]
     },
+    "fixjson": {
+      "filetypes": [
+        "json",
+        "jsonc",
+        "json5"
+      ]
+    },
     "fnlfmt": {
       "filetypes": [
         "fennel",
@@ -1131,7 +1155,8 @@
     },
     "shfmt": {
       "filetypes": [
-        "sh"
+        "sh",
+        "bash"
       ]
     },
     "smlfmt": {

@@ -15,6 +15,7 @@ return {
     formatting = { "asmfmt" }
   },
   astro = {
+    code_actions = { "eslint" },
     formatting = { "prettier", "prettierd" }
   },
   ["atlas-config"] = {
@@ -46,6 +47,10 @@ return {
   },
   ["atlas-test"] = {
     formatting = { "atlas_fmt" }
+  },
+  bash = {
+    code_actions = { "shellcheck" },
+    formatting = { "shfmt" }
   },
   beancount = {
     diagnostics = { "bean_check" },
@@ -223,10 +228,11 @@ return {
     formatting = { "astyle", "clang_format", "google_java_format", "npm_groovy_lint", "uncrustify" }
   },
   javascript = {
-    code_actions = { "refactoring" },
+    code_actions = { "eslint", "refactoring" },
     formatting = { "biome", "prettier", "prettierd", "rustywind" }
   },
   javascriptreact = {
+    code_actions = { "eslint" },
     formatting = { "biome", "prettier", "prettierd", "rustywind" }
   },
   jinja = {
@@ -238,10 +244,13 @@ return {
   },
   json = {
     diagnostics = { "cfn_lint", "spectral", "vacuum" },
-    formatting = { "biome", "prettier", "prettierd" }
+    formatting = { "biome", "fixjson", "prettier", "prettierd" }
+  },
+  json5 = {
+    formatting = { "fixjson" }
   },
   jsonc = {
-    formatting = { "biome", "prettier", "prettierd" }
+    formatting = { "biome", "fixjson", "prettier", "prettierd" }
   },
   jsp = {
     diagnostics = { "pmd" }
@@ -392,6 +401,7 @@ return {
     formatting = { "prettier", "prettierd", "stylelint" }
   },
   sh = {
+    code_actions = { "shellcheck" },
     diagnostics = { "dotenv_linter" },
     formatting = { "shellharden", "shfmt" },
     hover = { "printenv" }
@@ -420,6 +430,7 @@ return {
     formatting = { "surface" }
   },
   svelte = {
+    code_actions = { "eslint" },
     formatting = { "prettier", "prettierd", "rustywind" }
   },
   swift = {
@@ -465,11 +476,12 @@ return {
     formatting = { "typstfmt", "typstyle" }
   },
   typescript = {
-    code_actions = { "refactoring" },
+    code_actions = { "eslint", "refactoring" },
     diagnostics = { "semgrep" },
     formatting = { "biome", "prettier", "prettierd", "rustywind" }
   },
   typescriptreact = {
+    code_actions = { "eslint" },
     diagnostics = { "semgrep" },
     formatting = { "biome", "prettier", "prettierd", "rustywind" }
   },
@@ -487,6 +499,7 @@ return {
     diagnostics = { "vint" }
   },
   vue = {
+    code_actions = { "eslint" },
     formatting = { "prettier", "prettierd", "rustywind" }
   },
   xml = {
