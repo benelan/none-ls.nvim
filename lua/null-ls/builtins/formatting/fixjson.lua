@@ -10,7 +10,7 @@ return h.make_builtin({
         description = "A JSON file fixer/formatter for humans using (relaxed) JSON5.",
     },
     method = FORMATTING,
-    filetypes = { "json", "jsonc", "json5" },
+    filetypes = { "json" },
     generator_opts = {
         command = "fixjson",
         to_stdin = true,
